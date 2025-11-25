@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to My Amazing Stepmother</title>
+    <style>
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9f0ff 0%, #fff0f5 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e75480;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #d63384;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles - KEEP THIS AS BACKGROUND */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .header-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .header-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .floating-flowers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            color: #e75480;
+            margin-bottom: 40px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        /* CHANGE: Simple img tag but with same styling */
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+        
+        /* Qualities Section */
+        .qualities {
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            text-align: center;
+        }
+        
+        .qualities h2 {
+            font-size: 2.5rem;
+            color: #e75480;
+            margin-bottom: 40px;
+        }
+        
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .quality-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .quality-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .quality-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #e75480;
+        }
+        
+        .quality-card h3 {
+            color: #e75480;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .gallery h2 {
+            font-size: 2.5rem;
+            color: #e75480;
+            margin-bottom: 40px;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        /* CHANGE: Simple img tags but with same styling */
+        .photo-item {
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.3s ease;
+            
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Message Section */
+        .message {
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            text-align: center;
+        }
+        
+        .message h2 {
+            font-size: 2.5rem;
+            color: #e75480;
+            margin-bottom: 40px;
+        }
+        
+        .message-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .message-content::before {
+            content: "";
+            font-size: 100px;
+            color: #f8bbd9;
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .heart {
+            color: #e75480;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section - UNCHANGED -->
+    <header>
+        <div class="floating-flowers" id="floatingFlowers"></div>
+        <div class="header-content">
+            <h1>Happy Birthday to My Amazing Stepmother!</h1>
+            <p>Celebrating the woman who chose to love me as her own</p>
+            <a href="#message" class="btn">Read My Special Message</a>
+        </div>
+    </header>
+
+    <!-- About Section - CHANGED to simple img -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>A Mother, A wife and a Hard worker</h2>
+            <h3>What many young girls aspire to be</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>From the moment you came into my life, you've shown me what unconditional love means. You didn't have to be my mom, but you chose to be - and that makes our bond all the more special.</p>
+                    <p>You've been there through all my ups and downs, celebrating my successes and comforting me during challenges. Your guidance has shaped me into the man I am today.</p>
+                    <p>This website is a small token of my immense gratitude and love for everything you are and everything you do.</p>
+                    <h2>Happy Birthday Mommy</h2>
+                </div>
+                <img src="bday pics\Screenshot_20251125_103501_WhatsApp.jpg" alt="About us" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualities Section -->
+    <section class="qualities" id="qualities">
+        <div class="container">
+            <h2>Your Beautiful Qualities</h2>
+            <div class="qualities-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">💐</div>
+                    <h3>Nurturing Soul</h3>
+                    <p>You have this incredible ability to make everything better with just your presence. Your comforting words and warm hugs have healed countless hurts.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">🌻</div>
+                    <h3>Incredibly Hardworking</h3>
+                    <p>I've watched you juggle so many responsibilities with grace and determination. Your work ethic inspires me every single day.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon">🌸</div>
+                    <h3>Unconditional Love</h3>
+                    <p>You love without conditions, support without hesitation, and care without expecting anything in return. That's the definition of a true mother.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section - CHANGED to simple img tags -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Beautiful Memories</h2>
+            <div class="photo-grid">
+                <img src="bday pics\Screenshot_20251125_103505_WhatsApp.jpg" alt="Memory 1" class="photo-item">
+                <img src="bday pics\Screenshot_20251125_103510_WhatsApp.jpg" alt="Memory 2" class="photo-item">
+                <img src="bday pics/Screenshot_20251125_103516_WhatsApp.jpg" alt="Memory 3" class="photo-item">
+                <img src="bday pics\Screenshot_20251125_103548_WhatsApp.jpg" alt="Memory 4" class="photo-item">
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section - UNCHANGED -->
+    <section class="message" id="message">
+        <div class="container">
+            <h2>My Heartfelt Message to You</h2>
+            <div class="message-content">
+                <p>Dear Mommy,</p>
+                <p>i'm not one of many words but today</p>
+                <p>On your special day, I want you to know how incredibly grateful I am to have you in my life. You came into my world and filled it with love, guidance, and warmth.</p>
+                <p>I admire your strength and dedication how you work tirelessly for your family while still making sure each of us feels loved and cared for. You're like a beautiful gardener, hardworking in tending to every plant, yet gentle in your nurturing touch.</p>
+                <p>Thank you for all the sacrifices you've made, the lessons you've taught, and the love you've so freely given to me , to pa, to Nkosi and Nkosana, to Mahlane, to Dimpho, to Karabo, to Thabiso etc. my point is you're a mother and insperation to many and im sure they all feel the same way i do.</p>
+                <p>Today, I hope you feel as special as you are. May your birthday be filled with joy, laughter, and all the beautiful flowers that remind me of you.</p>
+                <p>With all my love,</p>
+                <p>Sifiso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - UNCHANGED -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Made with <span class="heart">❤️</span> for one of the most amazing women in the world</p>
+                <p>Happy Birthday! May your day be as beautiful as you are.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating flowers
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingFlowers = document.getElementById('floatingFlowers');
+            const flowers = ['🌸', '🌺', '🌷', '🌹', '💐', '🌻', '🌼', '🥀', '🪷', '🌾'];
+            
+            for (let i = 0; i < 20; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = (15 + Math.random() * 20) + 's';
+                flower.style.animationDelay = Math.random() * 5 + 's';
+                flower.style.fontSize = (1 + Math.random() * 2) + 'rem';
+                floatingFlowers.appendChild(flower);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
